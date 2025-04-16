@@ -337,6 +337,28 @@ function gameOver(){
     background(bg);
     drawGameOver();
     drawButton("Restart");
+    
+    // Add red text message below restart button
+    push();
+    textSize(24);
+    textStyle(BOLD);
+    textFont('Comic Sans MS, cursive, sans-serif');
+    textAlign(CENTER, CENTER);
+    
+    // Shadow effect similar to "i hate my life" style
+    for(let i = 0; i < 8; i++) {
+        let angle = i * PI/4;
+        let offsetX = cos(angle) * 2;
+        let offsetY = sin(angle) * 2;
+        fill(0);
+        text("Try to erase 1000 bad memories", width/2 + offsetX, restartButtonY + restartButtonHeight + 40 + offsetY);
+    }
+    
+    // Red text
+    fill(255, 0, 0);
+    text("Try to erase 1000 bad memories", width/2, restartButtonY + restartButtonHeight + 40);
+    pop();
+    
     lives = 0;
     console.log("lost");
     
